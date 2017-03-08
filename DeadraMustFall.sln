@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6B4AC121
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelTests", "ModelTests\ModelTests.csproj", "{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadraMustFall.Gateway", "DeadraMustFall.Gateway\DeadraMustFall.Gateway.csproj", "{81783335-A245-4393-8152-CE86F926546D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81783335-A245-4393-8152-CE86F926546D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81783335-A245-4393-8152-CE86F926546D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81783335-A245-4393-8152-CE86F926546D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81783335-A245-4393-8152-CE86F926546D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
