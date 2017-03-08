@@ -1,0 +1,4 @@
+{"ApiUrls":[
+	{"Name":"AddNewMember","Url":"http://localhost:49670/member/Addmember"}
+]
+}

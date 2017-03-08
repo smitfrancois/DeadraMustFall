@@ -12,7 +12,8 @@
         "registerMemberController": "app/registerMember/registerMember.controller",
         "registerMemberDirective": "app/registerMember/registerMember.directive",
         "mainHeaderController": "app/mainHeader/mainHeader.controller",
-        "mainHeaderDirective":"app/mainHeader/mainHeader.directive"
+        "mainHeaderDirective": "app/mainHeader/mainHeader.directive",
+        "apiServices":"app/services/api.services"
     },
     shim: {
         "angular": "angular",

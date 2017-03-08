@@ -108,6 +108,7 @@
     <Content Include="app\registerMember\registerMember.controller.js" />
     <Content Include="app\registerMember\registerMember.directive.js" />
     <Content Include="app\registerMember\registerMemberView.html" />
+    <Content Include="app\services\api.services.js" />
     <Content Include="Content\header\header.css" />
     <Content Include="Content\sideNav\sideMenu.css" />
     <Content Include="main.html" />
@@ -130,6 +131,7 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="app\services\ApiUrls.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

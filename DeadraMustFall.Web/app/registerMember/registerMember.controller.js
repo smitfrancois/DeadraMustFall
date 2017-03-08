@@ -3,9 +3,13 @@
         angularAMD
             .controller("registerMemberController", registerMemberController);
 
-        registerMemberController.$inject = ["$scope"];
+        registerMemberController.$inject = ["$scope","apiServices"];
 
-        function registerMemberController(scope) {
+        function registerMemberController(scope,apiServices) {
             var vm = this;
+
+            vm.addNewMember = function() {
+                apiServices.addNewMember("sdfff");
+            };
         };
     });
