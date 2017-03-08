@@ -6,7 +6,9 @@
         "bootstrap": "scripts/bootstrap",
         "jquery": "scripts/jquery-1.9.1",
         "mainContentController": "app/mainContent/mainContent.controller",
-        "mainContentDirective":"app/mainContent/mainContent.directive"
+        "mainContentDirective": "app/mainContent/mainContent.directive",
+        "mainMenuController": "app/mainMenu/mainMenu.controller",
+        "mainMenuDirective":"app/mainMenu/mainMenu.directive"
     },
     shim: {
         "angular": "angular",

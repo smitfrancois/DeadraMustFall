@@ -3,7 +3,9 @@
     "bootstrap",
     "jquery",
     "mainContentController",
-    "mainContentDirective"], function (angularAMD) {
+    "mainContentDirective",
+    "mainMenuController",
+    "mainMenuDirective"], function (angularAMD) {
         var app = angular.module("DeadraMustFallApp", []);
 
         return angularAMD.bootstrap(app);
