@@ -3,15 +3,15 @@
         <form>
             <div class="form-group">
                 <label for="esoHandleTextBox">ESO Handle</label>
-                <input type="text" class="form-control" id="esoHandleTextBox" placeholder="ESO Handle...">
+                <input type="text" class="form-control" id="esoHandleTextBox" ng-model="registerMemberCtrl.newMember.ESOHandle" placeholder="ESO Handle...">
             </div>
             <div class="form-group">
                 <label for="emailAddressTextBox">Email Address</label>
-                <input type="email" class="form-control" id="emailAddressTextBox" placeholder="Email Address...">
+                <input type="email" class="form-control" id="emailAddressTextBox" ng-model="registerMemberCtrl.newMember.EmailAddress" placeholder="Email Address...">
             </div>
             <div class="form-group">
                 <label for="passwordTextBox">Password</label>
-                <input type="password" class="form-control" id="passwordTextBox" placeholder="Password...">
+                <input type="password" class="form-control" id="passwordTextBox" ng-model="registerMemberCtrl.newMember.Password" placeholder="Password...">
             </div>
 
             <button type="button" class="btn btn-default" ng-click="registerMemberCtrl.addNewMember()">Save</button>

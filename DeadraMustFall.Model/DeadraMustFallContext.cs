@@ -16,5 +16,11 @@ namespace DeadraMustFall.Model
         }
 
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new UserMap());
+            //base.OnModelCreating(modelBuilder);
+        }
     }
 }

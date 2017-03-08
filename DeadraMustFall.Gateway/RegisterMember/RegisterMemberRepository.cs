@@ -12,7 +12,13 @@ namespace DeadraMustFall.Gateway.RegisterMember
     {
         public void AddNewMember(Member newUser)
         {
-            DbContext.Users.Add(newUser);
+            User user = new User();
+
+            user.ESOHandle =newUser.ESOHandle;
+            user.EmailAddress = newUser.EmailAddress;
+            user.Password = newUser.Password;
+
+            DbContext.Users.Add(user);
             DbContext.SaveChanges();
         }
     }

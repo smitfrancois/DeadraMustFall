@@ -8,8 +8,18 @@
         function registerMemberController(scope,apiServices) {
             var vm = this;
 
+            vm.newMember = {
+                ESOHandle: null,
+                EmailAddress: null,
+                Password:null
+            }
+
             vm.addNewMember = function() {
-                apiServices.addNewMember("sdfff");
+                apiServices.addNewMember(vm.newMember).then(function(response) {
+                    
+                }).catch(function(error) {
+                    
+                });
             };
         };
     });

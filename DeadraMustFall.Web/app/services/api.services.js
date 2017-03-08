@@ -28,7 +28,7 @@
 
             function addNewMember(newMember) {
                 getApiUrl("AddNewMember",function(url) {
-                    return http.post(url, "'" + newMember + "'", {
+                    return http.post(url, "'" + JSON.stringify(newMember) + "'", {
                         headers: {
                             "Content-Type": "text/plain"
                         }
