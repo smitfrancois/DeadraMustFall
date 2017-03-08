@@ -94,6 +94,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\deadraMustFall.main.js" />
+    <Content Include="app\deadraMustFall.module.js" />
+    <Content Include="app\mainContent\mainContent.controller.js" />
+    <Content Include="app\mainContent\mainContent.directive.js" />
+    <Content Include="app\mainContent\mainContentView.html" />
+    <Content Include="main.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
