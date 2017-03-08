@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadraMustFall.Web", "Deadr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadraMustFall.API", "DeadraMustFall.API\DeadraMustFall.API.csproj", "{CDB82B0A-26C3-4850-B11E-F1D6E3C4432B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6B4AC121-58C1-451F-ADCB-C7075B2F532E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelTests", "ModelTests\ModelTests.csproj", "{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,15 @@ Global
 		{CDB82B0A-26C3-4850-B11E-F1D6E3C4432B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDB82B0A-26C3-4850-B11E-F1D6E3C4432B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDB82B0A-26C3-4850-B11E-F1D6E3C4432B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B10A64B-37FC-4FA1-9AE8-D941616F12EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B10A64B-37FC-4FA1-9AE8-D941616F12EC} = {6B4AC121-58C1-451F-ADCB-C7075B2F532E}
 	EndGlobalSection
 EndGlobal
