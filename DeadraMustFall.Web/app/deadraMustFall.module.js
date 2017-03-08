@@ -7,7 +7,9 @@
     "mainMenuController",
     "mainMenuDirective",
     "registerMemberController",
-    "registerMemberDirective"], function (angularAMD) {
+    "registerMemberDirective",
+    "mainHeaderController",
+    "mainHeaderDirective"], function (angularAMD) {
         var app = angular.module("DeadraMustFallApp", []);
 
         return angularAMD.bootstrap(app);

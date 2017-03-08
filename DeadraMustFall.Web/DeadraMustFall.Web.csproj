@@ -99,12 +99,16 @@
     <Content Include="app\mainContent\mainContent.controller.js" />
     <Content Include="app\mainContent\mainContent.directive.js" />
     <Content Include="app\mainContent\mainContentView.html" />
+    <Content Include="app\mainHeader\mainHeader.controller.js" />
+    <Content Include="app\mainHeader\mainHeader.directive.js" />
+    <Content Include="app\mainHeader\mainHeaderView.html" />
     <Content Include="app\mainMenu\mainMenu.controller.js" />
     <Content Include="app\mainMenu\mainMenu.directive.js" />
     <Content Include="app\mainMenu\mainMenuView.html" />
     <Content Include="app\registerMember\registerMember.controller.js" />
     <Content Include="app\registerMember\registerMember.directive.js" />
     <Content Include="app\registerMember\registerMemberView.html" />
+    <Content Include="Content\header\header.css" />
     <Content Include="Content\sideNav\sideMenu.css" />
     <Content Include="main.html" />
     <Content Include="packages.config" />

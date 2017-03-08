@@ -10,7 +10,9 @@
         "mainMenuController": "app/mainMenu/mainMenu.controller",
         "mainMenuDirective": "app/mainMenu/mainMenu.directive",
         "registerMemberController": "app/registerMember/registerMember.controller",
-        "registerMemberDirective":"app/registerMember/registerMember.directive"
+        "registerMemberDirective": "app/registerMember/registerMember.directive",
+        "mainHeaderController": "app/mainHeader/mainHeader.controller",
+        "mainHeaderDirective":"app/mainHeader/mainHeader.directive"
     },
     shim: {
         "angular": "angular",
