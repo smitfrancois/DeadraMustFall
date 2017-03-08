@@ -14,5 +14,7 @@ namespace DeadraMustFall.Model
             Database.SetInitializer<DeadraMustFallContext>(new DropCreateDatabaseIfModelChanges<DeadraMustFallContext>());
             Database.Initialize(true);
         }
+
+        public DbSet<User> Users { get; set; }
     }
 }

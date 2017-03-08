@@ -102,6 +102,9 @@
     <Content Include="app\mainMenu\mainMenu.controller.js" />
     <Content Include="app\mainMenu\mainMenu.directive.js" />
     <Content Include="app\mainMenu\mainMenuView.html" />
+    <Content Include="app\registerMember\registerMember.controller.js" />
+    <Content Include="app\registerMember\registerMember.directive.js" />
+    <Content Include="app\registerMember\registerMemberView.html" />
     <Content Include="Content\sideNav\sideMenu.css" />
     <Content Include="main.html" />
     <Content Include="packages.config" />

@@ -8,7 +8,9 @@
         "mainContentController": "app/mainContent/mainContent.controller",
         "mainContentDirective": "app/mainContent/mainContent.directive",
         "mainMenuController": "app/mainMenu/mainMenu.controller",
-        "mainMenuDirective":"app/mainMenu/mainMenu.directive"
+        "mainMenuDirective": "app/mainMenu/mainMenu.directive",
+        "registerMemberController": "app/registerMember/registerMember.controller",
+        "registerMemberDirective":"app/registerMember/registerMember.directive"
     },
     shim: {
         "angular": "angular",
