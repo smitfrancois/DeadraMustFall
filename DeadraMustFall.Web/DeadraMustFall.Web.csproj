@@ -96,6 +96,8 @@
   <ItemGroup>
     <Content Include="app\deadraMustFall.main.js" />
     <Content Include="app\deadraMustFall.module.js" />
+    <Content Include="app\homePage\homePage.directive.js" />
+    <Content Include="app\homePage\homePageView.html" />
     <Content Include="app\mainContent\mainContent.controller.js" />
     <Content Include="app\mainContent\mainContent.directive.js" />
     <Content Include="app\mainContent\mainContentView.html" />
@@ -132,6 +134,7 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="app\services\ApiUrls.json" />
+    <Content Include="app\homePage\homePage.controller.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
