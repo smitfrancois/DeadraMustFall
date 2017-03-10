@@ -18,8 +18,8 @@ namespace DeadraMustFall.API.Controllers
         {
             var member = JsonConvert.DeserializeObject<Member>(newMember);
             RegisterMemberRepository repo = new RegisterMemberRepository();
-            repo.AddNewMember(member);
-            return null;
+            member = repo.AddNewMember(member);
+            return JsonConvert.SerializeObject(member);
         }
     }
 }

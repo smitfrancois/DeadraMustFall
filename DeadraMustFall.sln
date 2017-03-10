@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelTests", "ModelTests\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadraMustFall.Gateway", "DeadraMustFall.Gateway\DeadraMustFall.Gateway.csproj", "{81783335-A245-4393-8152-CE86F926546D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadraMustFall.Logger", "DeadraMustFall.Logger\DeadraMustFall.Logger.csproj", "{252DD97E-80BA-4E3C-B445-7CA9DC759FA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{81783335-A245-4393-8152-CE86F926546D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81783335-A245-4393-8152-CE86F926546D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81783335-A245-4393-8152-CE86F926546D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{252DD97E-80BA-4E3C-B445-7CA9DC759FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252DD97E-80BA-4E3C-B445-7CA9DC759FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252DD97E-80BA-4E3C-B445-7CA9DC759FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252DD97E-80BA-4E3C-B445-7CA9DC759FA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

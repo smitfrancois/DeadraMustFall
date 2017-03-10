@@ -15,7 +15,7 @@
             }
 
             vm.addNewMember = function() {
-                apiServices.addNewMember(vm.newMember).then(function(response) {
+               return apiServices.addNewMember(vm.newMember).then(function(response) {
                     
                 }).catch(function(error) {
                     

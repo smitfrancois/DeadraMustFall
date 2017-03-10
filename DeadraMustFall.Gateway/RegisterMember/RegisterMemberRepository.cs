@@ -10,7 +10,7 @@ namespace DeadraMustFall.Gateway.RegisterMember
 {
     public class RegisterMemberRepository : RepositoryBase<DeadraMustFallContext>
     {
-        public void AddNewMember(Member newUser)
+        public Member AddNewMember(Member newUser)
         {
             User user = new User();
 
@@ -20,6 +20,10 @@ namespace DeadraMustFall.Gateway.RegisterMember
 
             DbContext.Users.Add(user);
             DbContext.SaveChanges();
+
+            newUser.UserId = user.UserId;
+
+            return newUser;
         }
     }
 

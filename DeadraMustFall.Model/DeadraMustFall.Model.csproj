@@ -49,8 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClasses\DBEntityBase.cs" />
     <Compile Include="DeadraMustFallContext.cs" />
     <Compile Include="Domains\User.cs" />
+    <Compile Include="Interfaces\IDBEntity.cs" />
     <Compile Include="Mappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
