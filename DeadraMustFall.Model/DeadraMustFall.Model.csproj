@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BaseClasses\DBEntityBase.cs" />
     <Compile Include="DeadraMustFallContext.cs" />
+    <Compile Include="DeadraMustFallInitializer.cs" />
     <Compile Include="Domains\ArmorSets.cs" />
     <Compile Include="Domains\Class.cs" />
     <Compile Include="Domains\Item.cs" />

@@ -13,5 +13,7 @@ namespace DeadraMustFall.Model.Domains
         public ItemTypes ItemType { get; set; }
         public string Name { get; set; }
         public ItemQuality Quality { get; set; }
+        public int ItemLevel { get; set; }
+        public int Value { get; set; }
     }
 }

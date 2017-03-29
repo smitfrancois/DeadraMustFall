@@ -47,4 +47,14 @@ namespace DeadraMustFall.Model.Domains.Mappings
             HasMany(x => x.Bonus).WithRequired(x => x.ArmorSet);
         }
     }
+
+    internal class ItemMap : EntityTypeConfiguration<Item>
+    {
+        public ItemMap()
+        {
+            HasKey(x => x.Id);
+            ToTable("Items");
+
+        }
+    }
 }
