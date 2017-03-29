@@ -94,6 +94,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\CharacterBuild\build.controller.js" />
+    <Content Include="app\CharacterBuild\build.directive.js" />
+    <Content Include="app\CharacterBuild\CharacterBuildView.html" />
     <Content Include="app\deadraMustFall.main.js" />
     <Content Include="app\deadraMustFall.module.js" />
     <Content Include="app\homePage\homePage.directive.js" />
@@ -924,6 +927,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\CadwellsQuests\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
