@@ -75,6 +75,13 @@ namespace DeadraMustFall.Model
             itemTypes.Add(new ItemTypes() { Id = Guid.NewGuid(), Name = "Belts", Category = Categories.FirstOrDefault(x => x.Name == "Armor"), Discipline = disciplines.FirstOrDefault(x => x.Name == "Medium Armor") });
             itemTypes.Add(new ItemTypes() { Id = Guid.NewGuid(), Name = "Epaulets", Category = Categories.FirstOrDefault(x => x.Name == "Armor"), Discipline = disciplines.FirstOrDefault(x => x.Name == "Medium Armor") });
 
+            itemTypes.Add(new ItemTypes() { Id = Guid.NewGuid(), Name = "Bow", Category = Categories.FirstOrDefault(x => x.Name == "Weapon"), Discipline = disciplines.FirstOrDefault(x => x.Name == "Woodworking") });
+            itemTypes.Add(new ItemTypes() { Id = Guid.NewGuid(), Name = "Inferno Staff", Category = Categories.FirstOrDefault(x => x.Name == "Weapon"), Discipline = disciplines.FirstOrDefault(x => x.Name == "Woodworking") });
+            itemTypes.Add(new ItemTypes() { Id = Guid.NewGuid(), Name = "Ice Staff", Category = Categories.FirstOrDefault(x => x.Name == "Weapon"), Discipline = disciplines.FirstOrDefault(x => x.Name == "Woodworking") });
+            itemTypes.Add(new ItemTypes() { Id = Guid.NewGuid(), Name = "Lightning Staff", Category = Categories.FirstOrDefault(x => x.Name == "Weapon"), Discipline = disciplines.FirstOrDefault(x => x.Name == "Woodworking") });
+            itemTypes.Add(new ItemTypes() { Id = Guid.NewGuid(), Name = "Restoration Staff", Category = Categories.FirstOrDefault(x => x.Name == "Weapon"), Discipline = disciplines.FirstOrDefault(x => x.Name == "Woodworking") });
+            itemTypes.Add(new ItemTypes() { Id = Guid.NewGuid(), Name = "Shield", Category = Categories.FirstOrDefault(x => x.Name == "Shields"), Discipline = disciplines.FirstOrDefault(x => x.Name == "Woodworking") });
+
 
             return itemTypes;
         }
@@ -129,6 +136,18 @@ namespace DeadraMustFall.Model
             mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Superb", Discipline = mediumArmor, LevelRange = "70, 80", IsCPItem = true });
             mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Shadowhide", Discipline = mediumArmor, LevelRange = "90, 100, 110, 120, 130, 140", IsCPItem = true });
             mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Rubedo Leather", Discipline = mediumArmor, LevelRange = "150, 160", IsCPItem = true });
+
+            var woodWorking = disciplines.FirstOrDefault(x => x.Name == "Woodworking");
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Maple", Discipline = woodWorking, LevelRange = "1, 4, 6, 8, 10, 12, 14", IsCPItem = false });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Oak", Discipline = woodWorking, LevelRange = "16, 18, 20, 22, 24", IsCPItem = false });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Beech", Discipline = woodWorking, LevelRange = "26, 28, 30, 32, 34", IsCPItem = false });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Hickory", Discipline = woodWorking, LevelRange = "36, 38, 40, 42, 44", IsCPItem = false });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Yew", Discipline = woodWorking, LevelRange = "46, 48, 50", IsCPItem = false });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Birch", Discipline = woodWorking, LevelRange = "10, 20, 30", IsCPItem = true });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Ash", Discipline = woodWorking, LevelRange = "40, 50, 60", IsCPItem = true });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Mahogany", Discipline = woodWorking, LevelRange = "70, 80", IsCPItem = true });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Nightwood", Discipline = woodWorking, LevelRange = "90, 100, 110, 120, 130, 140", IsCPItem = true });
+            mats.Add(new CraftingMats() { Id = Guid.NewGuid(), Name = "Ruby Ash", Discipline = woodWorking, LevelRange = "150, 160", IsCPItem = true });
 
             return mats;
         }
@@ -202,7 +221,15 @@ namespace DeadraMustFall.Model
 
                     foreach (var quality in Qualities)
                     {
-                        items.Add(new Item() { Id = Guid.NewGuid(), Name = itemName, Quality = quality, ItemLevel = levelnum });
+                        if (quality.Name == "Normal" && itemName.TypeOfItem.Name == "Shield")
+                        {
+                            items.Add(new Item() { Value = (levelnum * 20), Id = Guid.NewGuid(), Name = itemName, Quality = quality, ItemLevel = levelnum });
+                        }
+                        else
+                        {
+                            items.Add(new Item() {  Id = Guid.NewGuid(), Name = itemName, Quality = quality, ItemLevel = levelnum });
+                        }
+                        
                     }
                 }
 
