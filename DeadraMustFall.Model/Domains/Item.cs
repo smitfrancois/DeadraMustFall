@@ -10,10 +10,11 @@ namespace DeadraMustFall.Model.Domains
     public class Item
     {
         public Guid Id { get; set; }
-        public ItemTypes ItemType { get; set; }
-        public string Name { get; set; }
+        
+        public ItemNames Name { get; set; }
         public ItemQuality Quality { get; set; }
         public int ItemLevel { get; set; }
         public int Value { get; set; }
+     
     }
 }
