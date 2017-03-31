@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DeadraMustFall.Model.Domains;
-using DeadraMustFall.Model.enums;
 
 namespace DeadraMustFall.Model
 {
@@ -14,6 +13,7 @@ namespace DeadraMustFall.Model
    
         protected override void Seed(DeadraMustFallContext context)
         {
+            //Create Items
             var craftingDisciplines = CreateCraftingDisciplines();
             var craftingMats = CreateCraftingMats(craftingDisciplines);
             var itemCategory = CreateItemCategories();
@@ -21,9 +21,19 @@ namespace DeadraMustFall.Model
             var qualities = CreateQualities();
             var names = CreateItemNames(itemTypes,craftingMats);
             var items = CreateWeapons(names, itemCategory, qualities);
+            
 
+            //Create Races
+            var races = CreateRaces();
+            var classes = CreateClasses();
 
+            //Skills
+            var skillLineCategories = CreateSkillLineCategories();
+            var skillLines = CreateSkillLines(skillLineCategories);
 
+            context.SkillLines.AddRange(skillLines);
+            context.Classes.AddRange(classes);
+            context.Races.AddRange(races);
             context.ItemTypes.AddRange(itemTypes);
             context.CraftingDisciplines.AddRange(craftingDisciplines);
             context.CraftingMaterials.AddRange(craftingMats);
@@ -37,6 +47,125 @@ namespace DeadraMustFall.Model
             base.Seed(context);
         }
 
+        public List<SkillLineCategories> CreateSkillLineCategories()
+        {
+            List<SkillLineCategories> categories = new List<SkillLineCategories>();
+
+            categories.Add(new SkillLineCategories() { Id = Guid.NewGuid(),Name="Class"});
+            categories.Add(new SkillLineCategories() { Id = Guid.NewGuid(), Name = "Weapon" });
+            categories.Add(new SkillLineCategories() { Id = Guid.NewGuid(), Name = "Armor" });
+            categories.Add(new SkillLineCategories() { Id = Guid.NewGuid(), Name = "Guild" });
+            categories.Add(new SkillLineCategories() { Id = Guid.NewGuid(), Name = "World" });
+            categories.Add(new SkillLineCategories() { Id = Guid.NewGuid(), Name = "Alliance War" });
+            categories.Add(new SkillLineCategories() { Id = Guid.NewGuid(), Name = "Racial" });
+            categories.Add(new SkillLineCategories() { Id = Guid.NewGuid(), Name = "Craft" });
+
+            return categories;
+        }
+
+        public List<SkillLines> CreateSkillLines(List<SkillLineCategories> skillCategories)
+        {
+            List<SkillLines> skillLines = new List<SkillLines>();
+
+            //Class Skill Lines
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Aedric Spear" ,SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class")});
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Dawn's Wrath", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Restoring Light", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Ardent Flame", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Draconic Power", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Earthen Heart", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Dark Magic", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Deadric Summoning", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Storm Calling", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Assasination", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Shadow", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Siphoning", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Class") });
+
+            //Weapon Skills
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Two-Handed", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Weapon") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "One Handed and Shield", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Weapon") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Dual Wield", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Weapon") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Bow", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Weapon") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Destruction Staff", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Weapon") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Restoration Staff", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Weapon") });
+
+            //Armor Skills
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Heavy Armor", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Armor") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Medium Armor", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Armor") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Light Armor", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Armor") });
+
+            //Guild Skills
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Fighters Guild", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Guild") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Mages Guild", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Guild") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Thieves Guild", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Guild") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Dark Brotherhood", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Guild") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Undaunted", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Guild") });
+
+            //World Skills
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Vampire", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "World") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Warewolf", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "World") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Legerdemain", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "World") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Soul Magic", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "World") });
+
+            //Alliance War Skills
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Assault", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Alliance War") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Support", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Alliance War") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Emperor", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Alliance War") });
+
+            //Racial Skills
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Breton", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Argonian", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Red Gaurd", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Imperial", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Khajiit", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Dunmer", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Altmer", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Bosmer", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Nord", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Orc", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Racial") });
+
+            //Craft Skills
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Alchemy", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Craft") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Blacksmithing", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Craft") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Woodworking", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Craft") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Enchanting", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Craft") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Provisioning", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Craft") });
+            skillLines.Add(new SkillLines() { Id = Guid.NewGuid(), Name = "Clothing", SkillCategory = skillCategories.FirstOrDefault(x => x.Name == "Craft") });
+
+            return skillLines;
+        }
+
+        public List<Race> CreateRaces()
+        {
+            List<Race> races = new List<Race>();
+
+            races.Add(new Race() { Id=Guid.NewGuid(), Name = "Breton" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Argonian" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Red Gaurd" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Khajiit" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Nord" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Bosmer" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Orc" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Dunmer" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Altmer" });
+            races.Add(new Race() { Id = Guid.NewGuid(), Name = "Imperial" });
+
+            return races;
+        }
+
+        public List<Class> CreateClasses()
+        {
+            List<Class> classes = new List<Class>();
+
+            classes.Add(new Class() {Id = Guid.NewGuid(),Name="Templar" });
+            classes.Add(new Class() { Id = Guid.NewGuid(), Name = "Nightblade" });
+            classes.Add(new Class() { Id = Guid.NewGuid(), Name = "Sorcerer" });
+            classes.Add(new Class() { Id = Guid.NewGuid(), Name = "Dragon Knight" });
+
+            return classes;
+        }
+ 
+        #region Create Items
         public List<ItemTypes> CreateItemTypes(List<ItemCategory> Categories,List<CraftingDisciplines> disciplines)
         {
             List<ItemTypes> itemTypes = new List<ItemTypes>();
@@ -187,7 +316,6 @@ namespace DeadraMustFall.Model
 
             return items;
         }
-
         
         public List<ItemNames> CreateItemNames(List<ItemTypes> itemTypes,List<CraftingMats> mats)
         {
@@ -206,8 +334,7 @@ namespace DeadraMustFall.Model
             
             return names;
         } 
-
-
+        
         public List<Item> CreateItems(List<ItemNames> Name, List<ItemQuality> Qualities)
         {
             List<Item> items = new List<Item>();
@@ -221,15 +348,7 @@ namespace DeadraMustFall.Model
 
                     foreach (var quality in Qualities)
                     {
-                        if (quality.Name == "Normal" && itemName.TypeOfItem.Name == "Shield")
-                        {
-                            items.Add(new Item() { Value = (levelnum * 20), Id = Guid.NewGuid(), Name = itemName, Quality = quality, ItemLevel = levelnum });
-                        }
-                        else
-                        {
-                            items.Add(new Item() {  Id = Guid.NewGuid(), Name = itemName, Quality = quality, ItemLevel = levelnum });
-                        }
-                        
+                        items.Add(new Item() {  Id = Guid.NewGuid(), Name = itemName, Quality = quality, ItemLevel = levelnum });
                     }
                 }
 
@@ -237,5 +356,7 @@ namespace DeadraMustFall.Model
 
             return items;
         }
+
+        #endregion
     }
 }

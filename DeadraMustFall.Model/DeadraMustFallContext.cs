@@ -29,6 +29,10 @@ namespace DeadraMustFall.Model
         public DbSet<CraftingDisciplines> CraftingDisciplines { get; set; }
         public DbSet<CraftingMats> CraftingMaterials { get; set; }
         public DbSet<ItemTypes> ItemTypes { get; set; }
+        public DbSet<Race> Races { get; set; }
+        public DbSet<Class> Classes { get; set; }
+        public DbSet<SkillLines> SkillLines { get; set; }
+        public DbSet<SkillLineCategories> SkillLineCategories { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserMap());
@@ -39,6 +43,10 @@ namespace DeadraMustFall.Model
             modelBuilder.Configurations.Add(new CraftingDisciplinesMap());
             modelBuilder.Configurations.Add(new CraftingMatsMap());
             modelBuilder.Configurations.Add(new ItemTypesMap());
+            modelBuilder.Configurations.Add(new RaceMap());
+            modelBuilder.Configurations.Add(new ClassMap());
+            modelBuilder.Configurations.Add(new SkillLineMap());
+            modelBuilder.Configurations.Add(new SkillLineCategoryMap());
             //base.OnModelCreating(modelBuilder);
         }
     }

@@ -26,27 +26,25 @@ namespace DeadraMustFall.Model.Domains.Mappings
         }
     }
 
-    internal class SkillsMap : EntityTypeConfiguration<Skills>
+   internal class SkillLineMap : EntityTypeConfiguration<SkillLines>
     {
-        public SkillsMap()
+        public SkillLineMap()
         {
             HasKey(x => x.Id);
-            ToTable("Skills");
-
-            HasOptional(x => x.ParentOfMorph).WithMany(x => x.Morphs);
+            ToTable("SkillLines");
         }
     }
 
-    internal class ArmorSetMap : EntityTypeConfiguration<ArmorSets>
+    internal class SkillLineCategoryMap : EntityTypeConfiguration<SkillLineCategories>
     {
-        public ArmorSetMap()
+        public SkillLineCategoryMap()
         {
             HasKey(x => x.Id);
-            ToTable("ArmorSets");
-
-            HasMany(x => x.Bonus).WithRequired(x => x.ArmorSet);
+            ToTable("SkillLineCategories");
+            HasMany(x => x.SkillLines).WithRequired(x => x.SkillCategory);
         }
     }
+
 
     internal class ItemMap : EntityTypeConfiguration<Item>
     {

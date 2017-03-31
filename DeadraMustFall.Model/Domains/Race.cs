@@ -10,6 +10,6 @@ namespace DeadraMustFall.Model.Domains
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-
+       
     }
 }
