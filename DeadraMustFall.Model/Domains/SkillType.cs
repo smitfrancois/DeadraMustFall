@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace DeadraMustFall.Model.Domains
 {
-    public class SkillLines
+    public class SkillType
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public SkillLineCategories SkillCategory { get; set; }
         public List<Skill> Skills { get; set; }
     }
 }

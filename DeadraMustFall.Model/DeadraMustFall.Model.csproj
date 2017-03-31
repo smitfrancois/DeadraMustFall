@@ -60,8 +60,10 @@
     <Compile Include="Domains\ItemCategory.cs" />
     <Compile Include="Domains\Mappings\Mappings.cs" />
     <Compile Include="Domains\Race.cs" />
+    <Compile Include="Domains\Skill.cs" />
     <Compile Include="Domains\SkillLineCategories.cs" />
     <Compile Include="Domains\SkillLines.cs" />
+    <Compile Include="Domains\SkillType.cs" />
     <Compile Include="Domains\User.cs" />
     <Compile Include="Domains\ItemNames.cs" />
     <Compile Include="Domains\ItemTypes.cs" />

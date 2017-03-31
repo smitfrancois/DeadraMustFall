@@ -30,7 +30,11 @@ namespace DeadraMustFall.Model
             //Skills
             var skillLineCategories = CreateSkillLineCategories();
             var skillLines = CreateSkillLines(skillLineCategories);
+            var skillTypes = CreateSkillTypes();
+            var skills = CreateSkills(skillLines, skillTypes);
 
+            context.SkillTypes.AddRange(skillTypes);
+            context.Skills.AddRange(skills);
             context.SkillLines.AddRange(skillLines);
             context.Classes.AddRange(classes);
             context.Races.AddRange(races);
@@ -46,6 +50,54 @@ namespace DeadraMustFall.Model
 
             base.Seed(context);
         }
+
+        public List<SkillType> CreateSkillTypes()
+        {
+            List<SkillType> skillTypes = new List<SkillType>();
+
+            skillTypes.Add(new SkillType() {Id= Guid.NewGuid(),Name="Active" });
+            skillTypes.Add(new SkillType() { Id = Guid.NewGuid(), Name = "Passive" });
+            skillTypes.Add(new SkillType() { Id = Guid.NewGuid(), Name = "Morph" });
+            skillTypes.Add(new SkillType() { Id = Guid.NewGuid(), Name = "Ultimate" });
+
+            return skillTypes;
+        }
+
+        public List<Skill> CreateSkills(List<SkillLines> skillLines,List<SkillType> skillTypes)
+        {
+            List<Skill> skills = new List<Skill>();
+
+            var skillLine = skillLines.FirstOrDefault(x => x.Name == "Aedric Spear");
+            var skillType = skillTypes.FirstOrDefault(x => x.Name == "Ultimate");
+            //Radial Sweep
+            var parentSkill = new Skill() { Id = Guid.NewGuid(), Name = "Radial Sweep", Description = "<ul><li>Swing your Aedric spear around with holy vengeance, dealing [x] Magic Damage to all nearby enemies and additional [y] Magic Damage every 2 seconds for 6 seconds.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = "Rank 12 " + skillLine.Name, CastTime = "Instant", Cost = "75" + skillType.Name, RadiusRange = "6m Radius", IsMorph = false };
+            skills.Add(parentSkill);
+            skills.Add(new Skill() { Id = Guid.NewGuid(), Name = "Empowering Sweep", Description = "<ul><li>Also reduces damage deal to you by 15 % for 10 seconds, plus an additional 4 % for each enemy hit. </li><li> Take reduced damage for each enemy hit.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = parentSkill.Name + " Rank IV", CastTime = "Instant", Cost = "75 " + skillType.Name, RadiusRange = "6m Radius",IsMorph=true,ParentSkill=parentSkill });
+            skills.Add(new Skill() { Id = Guid.NewGuid(), Name = "Crescent Sweep", Description = "<ul><li>Enemies in front of you take 66 % more initial damage.</li><li>Deals Physical Damage and also deals addtional damage to enemies in front of you</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = parentSkill.Name + " Rank IV", CastTime = "Instant", Cost = "75 " + skillType.Name, RadiusRange = "6m Radius", IsMorph = true, ParentSkill = parentSkill });
+
+            //Puncturing Strikes
+            skillType = skillTypes.FirstOrDefault(x => x.Name == "Active");
+            parentSkill = new Skill() { Id = Guid.NewGuid(), Name = "Puncturing Strikes", Description = "<ul><li>Launch a relentless assault, striking enemies in front of you four times with your Aedric spear dealing Magic Damage with each strike.</li><li>The closest enemy takes 140 % additional damage each strike, and their Movement Speed is reduced by 70 % for 2 seconds on the final hit.</li><li>The damage from this ability and its morphs can no longer be dodged.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = skillLine.Name + " 1", CastTime = "1.1s", Cost = "2952 Magicka", RadiusRange = "8m Range", IsMorph = false };
+            skills.Add(parentSkill);
+            skills.Add(new Skill() { Id = Guid.NewGuid(), Name = "Biting Jabs", Description = "<ul><li>Also grants you Major Savagery, increasing your Weapon Critical rating by 2191 for 8 seconds.</li><li>The damage from this ability and its morphs can no longer be dodged.</li><li>Converts to a Stamina ability, and increases your Weapon Critical rating when used.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = parentSkill.Name + " Rank IV", CastTime = "1.1s", Cost = "2903 Stamina", RadiusRange = "8m Range", IsMorph = true, ParentSkill = parentSkill });
+            skills.Add(new Skill() { Id = Guid.NewGuid(), Name = "Puncturing Sweep", Description = "<lu><li>Heals you for 35% of damage done.</li><li>The damage from this ability and its morphs can no longer be dodged.</li><li>Also heals you for a percentage of the damage done.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = parentSkill.Name + " Rank IV", CastTime = "1.1s", Cost = "2952 Magicka", RadiusRange = "8m Range", IsMorph = true, ParentSkill = parentSkill });
+
+            //Piercing Javelin
+            parentSkill = new Skill() { Id = Guid.NewGuid(), Name = "Piercing Javelin", Description = "<lu><li>Hurl your spear at an enemy with godlike strength, dealing [x] Magic Damage, stunning them for 1.8 seconds, and knocking them back 5 meters.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = skillLine.Name + " 4", CastTime = "Instant", Cost = "4050 Magicka", RadiusRange = "28m Range", IsMorph = false };
+            skills.Add(parentSkill);
+            skills.Add(new Skill() { Id = Guid.NewGuid(), Name = "Aurora Javelin", Description = "<ul><li>Deals up to 40% more damage based on the distance the spear travels.</li><li>Deals additional damage based on the distance the spear travels.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = parentSkill.Name + " Rank IV", CastTime = "Instant", Cost = "4050 Magicka", RadiusRange = "28m Range", IsMorph = true, ParentSkill = parentSkill });
+            skills.Add(new Skill() { Id = Guid.NewGuid(), Name = "Puncturing Sweep", Description = "<ul><li>Hurl your spear at an enemy with godlike strength, dealing [x] Physical Damage, stunning them for 3 seconds, and knocking them back 5 meters.</li><li>Converts to a Stamina ability, and stuns the enemy for a longer duration.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = parentSkill.Name + " Rank IV", CastTime = "Instant", Cost = "3983 Stamina", RadiusRange = "28m Range", IsMorph = true, ParentSkill = parentSkill });
+
+            //Piercing Javelin
+            parentSkill = new Skill() { Id = Guid.NewGuid(), Name = "Focused Charge", Description = "<lu><li>Hurl your spear at an enemy with godlike strength, dealing [x] Magic Damage, stunning them for 1.8 seconds, and knocking them back 5 meters.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = skillLine.Name + " 4", CastTime = "Instant", Cost = "4050 Magicka", RadiusRange = "28m Range", IsMorph = false };
+            skills.Add(parentSkill);
+            skills.Add(new Skill() { Id = Guid.NewGuid(), Name = "Explosive Charge", Description = "<ul><li>Deals up to 40% more damage based on the distance the spear travels.</li><li>Deals additional damage based on the distance the spear travels.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = parentSkill.Name + " Rank IV", CastTime = "Instant", Cost = "4050 Magicka", RadiusRange = "28m Range", IsMorph = true, ParentSkill = parentSkill });
+            skills.Add(new Skill() { Id = Guid.NewGuid(), Name = "Toppling Charge", Description = "<ul><li>Hurl your spear at an enemy with godlike strength, dealing [x] Physical Damage, stunning them for 3 seconds, and knocking them back 5 meters.</li><li>Converts to a Stamina ability, and stuns the enemy for a longer duration.</li></ul>", SkillLine = skillLine, SkillType = skillType, Unlocks = parentSkill.Name + " Rank IV", CastTime = "Instant", Cost = "3983 Stamina", RadiusRange = "28m Range", IsMorph = true, ParentSkill = parentSkill });
+
+            return skills;
+        }
+
+        
 
         public List<SkillLineCategories> CreateSkillLineCategories()
         {

@@ -33,7 +33,9 @@ namespace DeadraMustFall.Model
         public DbSet<Class> Classes { get; set; }
         public DbSet<SkillLines> SkillLines { get; set; }
         public DbSet<SkillLineCategories> SkillLineCategories { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<SkillType> SkillTypes { get; set; }
+         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new ItemMap());
@@ -47,6 +49,8 @@ namespace DeadraMustFall.Model
             modelBuilder.Configurations.Add(new ClassMap());
             modelBuilder.Configurations.Add(new SkillLineMap());
             modelBuilder.Configurations.Add(new SkillLineCategoryMap());
+            modelBuilder.Configurations.Add(new SkillsMap());
+            modelBuilder.Configurations.Add(new SkillTypesMap());
             //base.OnModelCreating(modelBuilder);
         }
     }
