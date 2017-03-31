@@ -51,7 +51,20 @@
   <ItemGroup>
     <Compile Include="BaseClasses\DBEntityBase.cs" />
     <Compile Include="DeadraMustFallContext.cs" />
+    <Compile Include="DeadraMustFallInitializer.cs" />
+    <Compile Include="Domains\Class.cs" />
+    <Compile Include="Domains\CraftingDisciplines.cs" />
+    <Compile Include="Domains\CraftingMats.cs" />
+    <Compile Include="Domains\Item.cs" />
+    <Compile Include="Domains\ItemQuality.cs" />
+    <Compile Include="Domains\ItemCategory.cs" />
+    <Compile Include="Domains\Mappings\Mappings.cs" />
+    <Compile Include="Domains\Race.cs" />
+    <Compile Include="Domains\SkillLineCategories.cs" />
+    <Compile Include="Domains\SkillLines.cs" />
     <Compile Include="Domains\User.cs" />
+    <Compile Include="Domains\ItemNames.cs" />
+    <Compile Include="Domains\ItemTypes.cs" />
     <Compile Include="Interfaces\IDBEntity.cs" />
     <Compile Include="Mappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

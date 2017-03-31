@@ -51,8 +51,14 @@
   <ItemGroup>
     <Compile Include="baseClasses\ApiResponseBase.cs" />
     <Compile Include="baseClasses\RepositoryBase.cs" />
+    <Compile Include="Dto\ArmorSetsDto.cs" />
+    <Compile Include="Dto\ClassDto.cs" />
+    <Compile Include="Dto\RaceDto.cs" />
+    <Compile Include="Dto\SetBonusDto.cs" />
+    <Compile Include="Dto\SkillsDto.cs" />
     <Compile Include="interfaces\IApiResponse.cs" />
     <Compile Include="interfaces\IRepository.cs" />
+    <Compile Include="Model\CharacterBuild.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterMember\Member.cs" />
     <Compile Include="RegisterMember\MemberApiResponse.cs" />
