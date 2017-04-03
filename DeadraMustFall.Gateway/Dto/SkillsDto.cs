@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DeadraMustFall.Model.enums;
 
 namespace DeadraMustFall.Gateway.Dto
 {
@@ -16,7 +15,6 @@ namespace DeadraMustFall.Gateway.Dto
         public string Costs { get; set; }
         public string CastTime { get; set; }
         public string RadiusRange { get; set; }
-        public SkillType SkillType { get; set; }
         public bool IsMorph { get; set; }
         public ClassDto ClassSkillsBelongTo { get; set; }
         public SkillsDto ParentOfMorph { get; set; }
